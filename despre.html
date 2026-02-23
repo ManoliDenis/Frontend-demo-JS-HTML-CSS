@@ -55,14 +55,39 @@
         <input type="text" id="prenume" name="prenume" value="prenume"><br>
         <label>Parola:</label>
         <input type="password" id="parola" name="parola" value="***"><br>
-        <label>Culoarea preferata:</label>
-        <label>Descriere</label>
-        <label>Sunt de acord cu conditiile</label>
+        <label for="culoare">Culoarea preferata:</label> 
+        <select name="culoare" id="culoare">
+            <option value="rosu">Rosu</option>
+            <option value="verde">Negru</option>
+            <option value="portocaliu">Roz</option>
+        </select><br>
+        <label>Descriere:</label>
+        <textarea id="Descriere" name="Descriere"></textarea><br>
+        <input type="checkbox" name="a" value="false" id="checkbox">
+        <label>Sunt de acord cu conditiile</label><br>
+        <button type="button">Inregistreaza</button>
 
     </form>
+    <p>
+        Pentru a crea liste se pot folosi tag-urile:
+    </p>
+    <ol type="i">
+        <li>ul - lista neordonata</li>
+        <li>ol - lista ordonata</li>
+        <li>li - item din lista</li>
+        <li>dl - lista cu descrieri</li>
+        <li>dt - termen dintr-o lista cu descrieri</li>
+        <li>dd - termen dintr-o lista cu descrieri</li>
+    </ol><br>
+
+    <p>
+        Pentru a insera un document HTML in altul se poate folosi tag-ul &ltiframe&gt.<br>
+        Astfel, exemplul de mai jos insereaza continutul de la adresa <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>.
+    </p>
+    <iframe src="despre.html"></iframe>
 
     <footer>
-    
+        ©2023.Programare web
     </footer>
 </body>
 
