@@ -6,11 +6,11 @@
 </head>
 <body>
     <header>    
-        <img src="rabla.png" alt="null" height="64" width="84">
+        <img src="imagini/rabla.png" alt="null" height="64" width="84">
         <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:red;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">Gh</span>
         <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:yellow;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">is</span>
         <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:blue;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">eu</span>
-        <img src="rabla.png" alt="null" height="64" width="84">
+        <img src="imagini/rabla.png" alt="null" height="64" width="84">
     </header>
     <nav> 
     <center>
@@ -20,7 +20,7 @@
                 <td><a href="index.html" style="text-decoration: none;color:black;"><span style="font-size: 32px;"><b>Acasa </b></span></a> </td> 
                 <td><a href="despre.html" style="text-decoration: none;color:black;"><span style="font-size: 32px;"><b>Despre </b></span></a> </td> 
                 <td><a href="inregistreaza.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b>Inregistrare </b></span></a></td>
-                <td><a href="inregistreaza.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b>Plata </b></span></a></td>
+                <td><a href="desen.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b>Desen </b></span></a></td>
                 <td><a href="video.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b> Video </b></span></a></td>
         </tr>
     </table>
@@ -28,24 +28,54 @@
     <hr>
     </nav>
     <main>
-        <h1>Acasa</h1>
-        <pre>
-                <h3>Sistemul Unificat de Gestiune și Plăți Digitale – Ghișeul CTI 🏛️</h6>
-
-            Platforma noastră reprezintă pilonul central al digitalizării administrative, fiind concepută special pentru a asigura o interfață directă și 
-            transparenta˘ între contribuabil și instituțiile statului. Într-o eră a vitezei, misiunea noastră este să transformăm birocrația clasică într-un 
-            flux de date eficient, eliminând necesitatea prezenței fizice la ghișeele tradiționale. ⏳🚫
-
-            Prin acest portal, utilizatorii pot accesa în timp real situația lor fiscala˘, vizualizând cu precizie debitele, impozitele pe proprietate sau 
-            amenzile contravenționale ce trebuie achitate. Implementarea unor protocoale de securitate de ultimă generație garantează confidențialitatea 
-            datelor cu caracter personal și integritatea fiecărei tranzacții efectuate. 🛡️🔐
-
-            Fie că ești aici pentru a achita o taxă de școlarizare sau pentru a regulariza impozitul anual, Ghișeul nostru îți pune la dispoziție un mecanism 
-            simplificat de plată, optimizat pentru orice dispozitiv. Ne angajăm să oferim o experiență intuitiva˘, unde tehnologia lucrează în serviciul 
-            cetățeanului, asigurând o trasabilitate completă a fondurilor și o comunicare constantă cu trezoreria centrală. 💳🌐
-
-                <h3>Digitalizarea nu este un lux, ci o necesitate administrativă. ⌨️✨</h3>
-        </pre>
+        <center>
+            <h1>Inregistrare</h1><br>
+            <form>
+                <center>Informatii generale </center>
+                <label for="username">Nume utilizator:</label>
+                <input type="text" id="username" name="username_box"><br>
+                <label for="parola">Parola:</label>
+                <input type="password" id="parola" name="password_box"><br>
+                <label for="nume">Nume:</label>
+                <input type="text" id="nume" name="name_box"><br>
+                <label for="prenume">Prenume:</label>
+                <input type="text" id="prenume" name="prenume_box"><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email_box"><br>
+                <label for="tel">Telefon:</label>
+                <input type="text" id="tel" name="tel_box">
+                <center>Informatii personale</center><br>
+                <label for="sex">Sexul:</label>
+                <select id="sex" name="sex">
+                    <option value="masculin">Masculin</option>
+                    <option value="feminin">Feminin</option>
+                    <option value="neutru">Neutru</option>
+                    <option value="imperialist">Imperialist</option>
+                    <option value="lucis">Lucis</option>
+                </select><br><br>
+                <label for="favfood">Mancarea preferata</label>
+                <input list="favfoods" name="favfood" id="favfood">
+                <datalist id="favfoods" name="favfood_box">
+                    <option value="Platou Persan">
+                    <option value="Piatto Kebab">
+                    <option value="Pita cu pateu">
+                    <option value="John">
+                </datalist><br>
+                <label for="culoare">Culoare preferata:</label>
+                <input type="color" id="culoare" name="culoare"><br>
+                <label for="datanasterii">Data nasterii:</label>
+                <input type="date" id="datanasterii" name="datanasterii"><br>
+                <label for="oranasterii">Data nasterii:</label>
+                <input type="time" id="oranasterii" name="oranasterii"><br>
+                <label for="varsta">Varsta:</label>
+                <input type="range" id="varsta" name="varsta"><br>
+                <label for="adresapagina">Adresa paginii personale:</label>
+                <input type="url" id="adresapagina" name="adresapagina"><br> 
+                <button type="submit" disabled="true">Inregistreaza</button>
+                
+            </form>
+        </center>
+          
     </main>
     <footer>
         <hr>
