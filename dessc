@@ -1,0 +1,11 @@
+index -> info site: ex descriere site etc
+inreg -> formulare cu multe date
+video -> iframe(la share -> embed ->copiat link iframe)
+despre ->
+html layouts
+<nav>
+    <a href ...></a>
+</nav>
+o noua pagina cu svg: svg fiecare componenta este descrisa in format xml
+un png arata bine pe dimensiuni mai mici dcat og, svg sunt vectoriale so can be scaled,
+tagg-ul svg doar in thml <svg></svg>

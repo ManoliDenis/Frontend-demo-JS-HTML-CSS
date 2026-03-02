@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE persoane SYSTEM "verify.dtd">
+<persoane>
+    <persoana id="1">
+        <nume>Popescu</nume>
+        <prenume>Ion</prenume>
+        <varsta>23</varsta>
+        <adresa>
+            <strada>idk</strada>
+            <numar>idk1</numar>
+            <localitate>idk2</localitate>
+            <judet>idk3</judet>
+            <tara>idk4</tara>
+        </adresa>
+    </persoana>
+
+    <persoana id="2">
+        <nume>Popescu</nume>
+        <prenume>Ion</prenume>
+        <varsta>23</varsta>
+        <adresa>
+            <strada>idk</strada>
+            <numar>idk1</numar>
+            <localitate>idk2</localitate>
+            <judet>idk3</judet>
+            <tara>idk4</tara>
+        </adresa>
+    </persoana>
+    
+    <persoana id="3">
+        <nume>Popescu</nume>
+        <prenume>Ion</prenume>
+        <varsta>23</varsta>
+        <adresa>
+            <strada>idk</strada>
+            <numar>idk1</numar>
+            <localitate>idk2</localitate>
+            <judet>idk3</judet>
+            <tara>idk4</tara>
+        </adresa>
+    </persoana>
+    
+</persoane>

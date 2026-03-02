@@ -1,94 +1,69 @@
 <!DOCTYPE html>
-<html lang="ro">
 <head>
-<title> Programare Web</title>   
+    <meta charset="UTF-8">
+    <style>body{font-family:"Comic Sans MS";background-color:#f0f8ff;}</style>
+    <title>Ghiseu</title>
 </head>
 <body>
-    <header>
-        <h1><b>Programare Web</b> </h1>
-        <h2><b>Limbajul HTML</b></h2>
+    <header>    
+        <img src="rabla.png" alt="null" height="64" width="84">
+        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:red;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">Gh</span>
+        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:yellow;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">is</span>
+        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:blue;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">eu</span>
+        <img src="rabla.png" alt="null" height="64" width="84">
     </header>
-    <p>
-        <b>
-            HTML (HyperText Markup Language)
-        </b>
-        este un limbaj de marcare utilizat pentru a crea pagini web.
-    </p>
-    <p>
-        Un exemplu de cod html il gasiti in imaginea urmatoare care se afla la adresa <a href="https://www.w3schools.com/html/html_links.asp">edu.tuiasi.ro</a>.
-     <br>Imaginea are atributul height de valoare 147.
-     <br>
-     <img width=256 height=256 src="https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png" alt="rabla.png">
-    </p>
-    
-        <b>Tag-urile</b> html cele mai utilizate in realizarea tabelelor sunt:  
-        <table border="1">
-            <tr>
-                <td>table</td>
-                <td>defineste un tabel</td>
-            </tr>
-            <tr>
-                <td>tr</td>
-                <td>un rand intr-un tabel</td>
-            </tr>
-            <tr>
-                <td>td</td>
-                <td>o celula intr-un tabel</td>
-            </tr>
+    <nav> 
+    <center>
+    <table border="1">
+        <tr>
+            
+                <td><a href="index.html" style="text-decoration: none;color:black;"><span style="font-size: 32px;"><b>Acasa </b></span></a> </td> 
+                <td><a href="despre.html" style="text-decoration: none;color:black;"><span style="font-size: 32px;"><b>Despre </b></span></a> </td> 
+                <td><a href="inregistreaza.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b>Inregistrare </b></span></a></td>
+                <td><a href="inregistreaza.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b>Plata </b></span></a></td>
+                <td><a href="video.html" style="text-decoration: none;color:black;"> <span style="font-size: 32px;"><b> Video </b></span></a></td>
+        </tr>
+    </table>
+    </center>
+    <hr>
+    </nav>
+    <main>
+        <h1>Despre</h1>
+        <pre>
+            <h3>Despre Platforma Regională de Servicii Digitale – Ghișeul CTI 🎓</h3>
 
-        </table>
-        <b>Observatie:</b> Pentru a pune un contur unui tabel se poate(dar nu se recomanda) sa se puna atributul border="1".
-        <br>La validare va da eroarea: The border attribute on table element is obsolete.
-    
-    <p>
-        Formularele se pot crea cu ajutorul tag-ului form care poate contine tag-urile: input, textarea, label, select, option, button.
-        <br>Pentru mai multe detalii consultati cursul sau tutorialul <a href="https://www.youtube.com">HTML Forms and Inputs</a> de la adresa <a href="http://www.w3schools.com/html/html_forms.asp">http://www.w3schools.com/html/html_forms.asp</a>.
-    </p>
-    <p>
-        Un exemplu de formular este urmatorul:
-    </p>
-    <form>
-        <label>Nume:</label>
-        <input type="text" id="nume" name="nume" value="nume"><br>
-        <label>Prenume:</label>
-        <input type="text" id="prenume" name="prenume" value="prenume"><br>
-        <label>Parola:</label>
-        <input type="password" id="parola" name="parola" value="***"><br>
-        <label for="culoare">Culoarea preferata:</label> 
-        <select name="culoare" id="culoare">
-            <option value="rosu">Rosu</option>
-            <option value="verde">Negru</option>
-            <option value="portocaliu">Roz</option>
-        </select><br>
-        <label>Descriere:</label>
-        <textarea id="Descriere" name="Descriere"></textarea><br>
-        <input type="checkbox" name="a" value="false" id="checkbox">
-        <label>Sunt de acord cu conditiile</label><br>
-        <button type="button">Inregistreaza</button>
+            Proiectul Ghișeul CTI a luat naștere din necesitatea de a oferi o soluție tehnologică avansată pentru simplificarea interacțiunii dintre 
+            cetățeni și aparatul administrativ local. Dezvoltat în cadrul laboratoarelor de Inginerie Software, acest portal integrează cele mai noi 
+            standarde de securitate și eficiență operațională, fiind conceput să gestioneze volume mari de date în timp real. 🛡️💻
 
-    </form>
-    <p>
-        Pentru a crea liste se pot folosi tag-urile:
-    </p>
-    <ol type="i">
-        <li>ul - lista neordonata</li>
-        <li>ol - lista ordonata</li>
-        <li>li - item din lista</li>
-        <li>dl - lista cu descrieri</li>
-        <li>dt - termen dintr-o lista cu descrieri</li>
-        <li>dd - termen dintr-o lista cu descrieri</li>
-    </ol><br>
+            Misiunea Noastră:
+            Viziunea noastră este centrată pe eliminarea birocrației redundante și pe transformarea fiecărei interacțiuni fiscale într-un proces fluid, 
+            digitalizat și complet transparent. Credem că accesul la servicii publice nu ar trebui să fie condiționat de bariere fizice sau de orare limitate, 
+            motiv pentru care platforma noastră este disponibilă non-stop, 24/7. ⏳🌐
 
-    <p>
-        Pentru a insera un document HTML in altul se poate folosi tag-ul &lt;iframe&gt;.<br>
-        Astfel, exemplul de mai jos insereaza continutul de la adresa <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>.
-    </p>
-    <iframe src="despre.html"></iframe>
+            Echipa Tehnică:
+            Suntem un grup de viitori ingineri din cadrul facultății de Calculatoare și Tehnologia Informației, dedicați dezvoltării de soluții care să aducă 
+            valoare comunității. Prin acest demers, demonstrăm că tehnologia UTF-8 și limbajele de programare web pot fi puse în slujba cetățeanului pentru a 
+            crea o societate mai conectată și mai organizată. ⌨️✨
+        </pre>
+        <h2>Contact us</h2>
+        <p>
+            Email: denis-george-andrei.manoli@student.tuiasi.ro <br>    
+            Numar de telefon: +40756677799 <br>
+        </p>
+        <h3>Subscribe to Newsletter</h3>
+        <form>
+             <label for="nume">Nume:</label>
+             <input type="text" id="nume" name="name"><br>
+             <label for="user_email">Adresa email:</label>
+             <input type="text" id="user_email" name="email"><br>
+             <button type="button">Subscribe</button>
+        </form>
+       
 
+    </main>
     <footer>
-        ©2023.Programare web
+        <hr>
+        ©2026.Ghiseu CTI
     </footer>
 </body>
-
-
-</html>
