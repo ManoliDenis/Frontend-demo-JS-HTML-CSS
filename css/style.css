@@ -1,0 +1,9 @@
+body{
+    font-family:"Comic Sans MS";
+    background-color:#f0f8ff;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+    font-size: 32px;
+}
