@@ -1,0 +1,38 @@
+body{
+    font-family:"Comic Sans MS";
+    background-color:#f0f8ff;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+    font-size: 32px;
+}
+
+nav a:hover{
+    color:red
+}
+
+@media (max-width: 100px)
+{
+    nav a{
+    text-decoration: none;
+    color:red;
+    font-size: 32px;
+    }
+}
+@media (max-width: 400px)
+{
+    nav a{
+    text-decoration: none;
+    color:yellow;
+    font-size: 32px;
+    }
+}
+@media (max-width: 800px)
+{
+    nav a{
+    text-decoration: none;
+    color:blue;
+    font-size: 32px;
+    }
+}

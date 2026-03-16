@@ -12,7 +12,7 @@ nav a:hover{
     color:red
 }
 
-@media (max-width: 100px)
+@media (width: 100px)
 {
     nav a{
     text-decoration: none;
@@ -20,7 +20,7 @@ nav a:hover{
     font-size: 32px;
     }
 }
-@media (max-width: 400px)
+@media (width: 200px)
 {
     nav a{
     text-decoration: none;
@@ -28,11 +28,25 @@ nav a:hover{
     font-size: 32px;
     }
 }
-@media (max-width: 800px)
+@media (width: 300px)
 {
     nav a{
     text-decoration: none;
     color:blue;
     font-size: 32px;
     }
+}
+main{
+    align-items: flex-start;
+}
+aside{
+    top: 400px;
+    float:right;
+    position:sticky;
+    width:100px;
+    background-color: antiquewhite;
+
+}
+#ora {
+    background-color: gray;
 }
