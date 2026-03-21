@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/inregistreaza.css">
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+     <script src="js/script.js"></script>
     <title>Ghiseu</title>
 </head>
 <body>
-    <header>    
-        <img src="imagini/rabla.png" alt="null" height="64" width="84">
-        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:red;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">Gh</span>
-        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:yellow;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">is</span>
-        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:blue;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">eu</span>
-        <img src="imagini/rabla.png" alt="null" height="64" width="84">
-    </header>
-    <nav> 
-    <center>
-            
+    <header class="bara-sus">    
+        <img src="imagini/logoFurat.svg" alt="null" height="64">
+    <nav>           
                 <a href="index.html" ><b>Acasa </b></a>  
                 <a href="despre.html"  ><b>Despre </b></a> 
                 <a href="inregistreaza.html"  > <b>Inregistrare </b></a>
                 <a href="desen.html"  > <b>Desen </b></a>
                 <a href="video.html"  > <b> Video </b></a>    
-                <a href="invat.html"  > <b> Invat </b></a>   
-            </center>
-    <hr>
-    </nav>
+                <a href="invat.html"  > <b> Invat </b></a>    
+    </nav> 
+    </header>
+   
+    
     <main>
-        <center>
-            <h1>Inregistrare</h1><br>
-            <form>
-                <center>Informatii generale </center>
+        <aside class="side_nav">
+            <nav class="nav_sid">
+                <center>
+                    <a href="#inregistrare">Inregistrare</a><br>
+                    <h5 id="ora"></h5>
+                </center>
+            </nav>
+        </aside>
+       
+        <section class="sectiune-register">
+            <h1 id="inregistrare">Inregistrare</h1>
+            
+            <form class="formular-inregistrare">
+                <h3>Informatii generale</h3>
+                
                 <label for="username">Nume utilizator:</label>
-                <input type="text" id="username" name="username_box"><br>
+                <input type="text" id="username" name="username_box">
+                
                 <label for="parola">Parola:</label>
-                <input type="password" id="parola" name="password_box"><br>
+                <input type="password" id="parola" name="password_box">
+                
                 <label for="nume">Nume:</label>
-                <input type="text" id="nume" name="name_box"><br>
+                <input type="text" id="nume" name="name_box">
+                
                 <label for="prenume">Prenume:</label>
-                <input type="text" id="prenume" name="prenume_box"><br>
+                <input type="text" id="prenume" name="prenume_box">
+                
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email_box"><br>
+                <input type="email" id="email" name="email_box">
+                
                 <label for="tel">Telefon:</label>
-                <input type="text" id="tel" name="tel_box">
-                <center>Informatii personale</center><br>
+                <input type="tel" id="tel" name="tel_box">
+                
+                <h3>Informatii personale</h3>
+                
                 <label for="sex">Sexul:</label>
                 <select id="sex" name="sex">
                     <option value="masculin">Masculin</option>
@@ -50,35 +65,42 @@
                     <option value="neutru">Neutru</option>
                     <option value="imperialist">Imperialist</option>
                     <option value="lucis">Lucis</option>
-                </select><br><br>
-                <label for="favfood">Mancarea preferata</label>
+                </select>
+                
+                <label for="favfood">Mancarea preferata:</label>
                 <input list="favfoods" name="favfood" id="favfood">
-                <datalist id="favfoods" name="favfood_box">
+                <datalist id="favfoods">
                     <option value="Platou Persan">
                     <option value="Piatto Kebab">
                     <option value="Pita cu pateu">
                     <option value="John">
-                </datalist><br>
-                <label for="culoare">Culoare preferata:</label>
-                <input type="color" id="culoare" name="culoare"><br>
-                <label for="datanasterii">Data nasterii:</label>
-                <input type="date" id="datanasterii" name="datanasterii"><br>
-                <label for="oranasterii">Data nasterii:</label>
-                <input type="time" id="oranasterii" name="oranasterii"><br>
-                <label for="varsta">Varsta:</label>
-                <input type="range" id="varsta" name="varsta"><br>
-                <label for="adresapagina">Adresa paginii personale:</label>
-                <input type="url" id="adresapagina" name="adresapagina"><br> 
-                <label for="descriere">Desriere situatie:</label>
-                <textarea></textarea><br>
-                <button type="submit" disabled="true">Inregistreaza</button>
+                </datalist>
                 
+                <label for="culoare">Culoare preferata:</label>
+                <input type="color" id="culoare" name="culoare">
+                
+                <label for="datanasterii">Data nasterii:</label>
+                <input type="date" id="datanasterii" name="datanasterii">
+                
+                <label for="oranasterii">Ora nasterii:</label>
+                <input type="time" id="oranasterii" name="oranasterii">
+                
+                <label for="varsta">Varsta:</label>
+                <input type="range" id="varsta" name="varsta">
+                
+                <label for="adresapagina">Adresa paginii personale:</label>
+                <input type="url" id="adresapagina" name="adresapagina">
+                
+                <label for="descriere">Descriere situatie:</label>
+                <textarea id="descriere" name="descriere"></textarea>
+                
+                <button type="submit" disabled="true" class="btn-submit">Inregistreaza</button>
             </form>
-        </center>
-          
+        </section>
+  
     </main>
-    <footer>
-        <hr>
+
+    <footer  class="bara-jos">
         ©2026.Ghiseu CTI
     </footer>
 </body>

@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+     <script src="js/script.js"></script>
     <title>Ghiseu</title>
 </head>
 <body>
-   <header>    
-        <img src="imagini/rabla.png" alt="null" height="64" width="84">
-        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:red;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">Gh</span>
-        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:yellow;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">is</span>
-        <span style="font-size:64px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:blue;-webkit-text-stroke:1px;-webkit-text-stroke-color: black;">eu</span>
-        <img src="imagini/rabla.png" alt="null" height="64" width="84">
-    </header>
-    <nav> 
-    <center>
-            
+    <header class="bara-sus">    
+        <img src="imagini/logoFurat.svg" alt="null" height="64">
+    <nav>           
                 <a href="index.html" ><b>Acasa </b></a>  
                 <a href="despre.html"  ><b>Despre </b></a> 
                 <a href="inregistreaza.html"  > <b>Inregistrare </b></a>
                 <a href="desen.html"  > <b>Desen </b></a>
                 <a href="video.html"  > <b> Video </b></a>    
-                <a href="invat.html"  > <b> Invat </b></a>   
-    </center>
-    <hr>
-    </nav>
+                <a href="invat.html"  > <b> Invat </b></a>    
+    </nav> 
+    </header>
+   
+    
     <main>
-        <h1>Video</h1>
+        <h1 id="video">Video</h1>
+        <aside class="side_nav">
+            <nav class="nav_sid">
+                <center>
+                    <a href="#video">Video</a><br>
+                    <h5 id="ora"></h5>
+                </center>
+            </nav>
+        </aside>
+       
+        <div class="galerie-video">
+            <iframe class="video-mare" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=2htHFuXR_dTA9PXo" allowfullscreen></iframe>
+        </div>
 
-        <center>
-            <h2>Video cu intentia usurarii intelegerii utilizarii site-ului:</h2>
-            <table border="1">
-                    <tr>
-                        <td><iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=2htHFuXR_dTA9PXo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
-                    </tr>
-            </table>
-        </center>
     </main>
-    <footer>
-        <hr>
+
+    <footer  class="bara-jos">
         ©2026.Ghiseu CTI
     </footer>
 </body>
