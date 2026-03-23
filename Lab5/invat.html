@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+     <script src="js/script.js"></script>
+    <title>Ghiseu</title>
+</head>
+<body>
+    <header class="bara-sus">    
+        <img src="imagini/logoFurat.svg" alt="null" height="64">
+    <nav>           
+                <a href="index.html" ><b>Acasa </b></a>  
+                <a href="despre.html"  ><b>Despre </b></a> 
+                <a href="inregistreaza.html"  > <b>Inregistrare </b></a>
+                <a href="desen.html"  > <b>Desen </b></a>
+                <a href="video.html"  > <b> Video </b></a>    
+                <a href="invat.html"  > <b> Invat </b></a>    
+    </nav> 
+    </header>
+   
+    <main>
+      <aside class="side_nav">
+          <nav class="nav_sid">
+              <a href="#sec1">Info Sistem</a><br>
+              <a href="#sec2">Desen</a><br>
+              <a href="#sec3">Taxe</a><br>
+          </nav>
+      </aside>
+      <center>
+      <section id="sec1">
+          <h1>Detalii Conexiune si Sistem</h1>
+          <div id="info-sistem">Se încarca datele...</div>
+          <h3 id="ora"></h3>
+          
+      </section>
+       </center>
+       <center>
+      <section id="sec2">
+          <h1>Deseneaza-ti platile</h1>
+          <label>Culoare Contur: <input type="color" id="culoareContur" value="#000000"></label>
+          <label>Culoare Umplere: <input type="color" id="culoareUmplere" value="#81d68e"></label><br><br>
+          <canvas id="zonaDesen" width="600" height="300" style="border: 2px dashed #4a4a4a; background: white;"></canvas>
+          
+      </section>
+      </center>
+      <center>
+      <section id="sec3">
+          <h1>Registru Taxe</h1>
+          <label>Poziție (index): <input type="number" id="pozitieTabel" min="0" value="0"></label>
+          <label>Culoare: <input type="color" id="culoareTabel" value="#ecd484"></label><br><br>
+          <button id="btnRand">Adauga Rand </button>
+          <button id="btnColoana">Adauga Coloana </button><br><br>
+          
+          <table id="tabelTaxe" border="1" style="width: 100%; text-align: center; border-collapse: collapse;">
+              <tr>
+                  <td>Taxa Auto</td>
+                  <td>150 RON</td>
+              </tr>
+              <tr>
+                  <td>Taxa de aer</td>
+                  <td>300 RON</td>
+              </tr>
+          </table>
+      </section>
+    </center>
+  </main>
+
+    <footer  class="bara-jos">
+        ©2026.Ghiseu CTI
+    </footer>
+</body>
