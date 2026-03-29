@@ -1,10 +1,12 @@
 window.addEventListener("load", initPage);
-
+let paginaCurenta = window.location.pathname.split("/").pop();
 let startX, startY;
 let isDrawing = false;
 
 function initPage() {
+    
     setInterval(ceas, 1000);
+     if(paginaCurenta == "invat.html"){
     incarcaInfoSistem();
 
     let canvas = document.getElementById("zonaDesen");
@@ -12,6 +14,7 @@ function initPage() {
 
     document.getElementById("btnRand").addEventListener("click", adaugaRand);
     document.getElementById("btnColoana").addEventListener("click", adaugaColoana);
+     }
 }
 
 function ceas() {
@@ -21,6 +24,7 @@ function ceas() {
 }
 
 function incarcaInfoSistem() {
+    if(paginaCurenta == "invat.html"){
     let info = "Adresa URL: " + window.location.href + "<br>";
     info += "Browser: " + navigator.appName + " (" + navigator.appVersion + ")<br>";
     info += "Sistem Operare: " + navigator.platform + "<br>";
@@ -32,6 +36,7 @@ function incarcaInfoSistem() {
             document.getElementById("info-sistem").innerHTML += 
             "<br>Locatie (Lat, Long): " + position.coords.latitude + ", " + position.coords.longitude;
         });
+    }
     }
 }
 
