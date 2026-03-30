@@ -9,8 +9,7 @@ crlf = "\r\n"
 page_found = "HTTP/1.1 200 OK" + crlf
 page_not_found = "HTTP/1.1 404 NOT FOUND" + crlf
 
-with open("../contents/index.html", "r", encoding='UTF-8') as index_file:
-    content = index_file.read()
+
 with open("../contents/css/style.css", "r", encoding='UTF-8') as css_file:
     content_css = css_file.read()
 with open("../contents/js/script.js", "r", encoding='UTF-8') as js_file:
@@ -20,9 +19,20 @@ with open("../contents/imagini/logoFurat.svg", "rb") as svg_file:
 with open("../contents/favicon.ico", "rb") as ico_file:
                 content_ico = ico_file.read()
 # functions
+def get_main(html_file : str):
+     first_main = html_file.find("<main>")
+     last_main = html_file.find("</main>")
+     body_main = html_file[first_main:last_main+7]
+     body_main = body_main[6:len(body_main)-1-6]
+     if _debug == True:
+        print("\n\n ",body_main,"\n\n\n")
+
+     return body_main
 def process_message(method:str, uri: str):
     if method == "GET":
         if uri == "/":
+            with open("../contents/index.html", "r", encoding='UTF-8') as index_file:
+              content = index_file.read()
             header = page_found + "Content-Type: text/html; charset=utf-8" + crlf +"Content-Encoding: gzip" +crlf + crlf
             return header.encode('utf-8') + gzip.compress(content.encode('utf-8'))
         
@@ -41,6 +51,7 @@ def process_message(method:str, uri: str):
         elif uri.endswith(".html"):
              with open("../contents"+uri, "r", encoding='UTF-8') as extra_file:
                 content_extra = extra_file.read()
+             content_extra = get_main(content_extra)
              header = page_found + "Content-Type: text/html; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
              return header.encode('utf-8') + gzip.compress(content_extra.encode('utf-8'))
         
@@ -93,7 +104,7 @@ def process_requests(connection : sock, address : any ):
             time.sleep(20)
 
 socket = sock.socket(sock.AF_INET, sock.SOCK_STREAM)
-socket.bind(('localhost', 8081))
+socket.bind(('localhost', 5454))
 socket.listen(2)
 
 while True:
