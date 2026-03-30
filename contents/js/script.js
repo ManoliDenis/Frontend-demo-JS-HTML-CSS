@@ -2,19 +2,38 @@ window.addEventListener("load", initPage);
 let paginaCurenta = window.location.pathname.split("/").pop();
 let startX, startY;
 let isDrawing = false;
+changeContent('acasa')
 
 function initPage() {
     
     setInterval(ceas, 1000);
-     if(paginaCurenta == "invat.html"){
-    incarcaInfoSistem();
+    if(paginaCurenta == "invat.html")
+    {
+        incarcaInfoSistem();
 
-    let canvas = document.getElementById("zonaDesen");
-    canvas.addEventListener("mousedown", deseneazaDreptunghi);
+        let canvas = document.getElementById("zonaDesen");
+        canvas.addEventListener("mousedown", deseneazaDreptunghi);
 
-    document.getElementById("btnRand").addEventListener("click", adaugaRand);
-    document.getElementById("btnColoana").addEventListener("click", adaugaColoana);
+        document.getElementById("btnRand").addEventListener("click", adaugaRand);
+        document.getElementById("btnColoana").addEventListener("click", adaugaColoana);
      }
+}
+
+async function changeContent(pathway) {
+    try {
+        const response = await fetch("/" + pathway + ".html");
+        
+        if (!response.ok) {
+            throw new Error("Pagina nu a fost gasita");
+        }
+
+        const html = await response.text();
+        document.getElementById("contentx").innerHTML = html;
+    } 
+    catch (error) {
+        console.log("Eroare la incarcare:", error);
+        document.getElementById("contentx").innerHTML = "Nu am gasit continutul.";
+    }
 }
 
 function ceas() {
