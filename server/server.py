@@ -12,12 +12,10 @@ page_not_found = "HTTP/1.1 404 NOT FOUND" + crlf
 
 with open("../contents/css/style.css", "r", encoding='UTF-8') as css_file:
     content_css = css_file.read()
-with open("../contents/js/script.js", "r", encoding='UTF-8') as js_file:
-    content_js = js_file.read()
 with open("../contents/imagini/logoFurat.svg", "rb") as svg_file:
     content_svg = svg_file.read()
 with open("../contents/favicon.ico", "rb") as ico_file:
-                content_ico = ico_file.read()
+    content_ico = ico_file.read()
 # functions
 def get_main(html_file : str):
      first_main = html_file.find("<main>")
@@ -41,8 +39,10 @@ def process_message(method:str, uri: str):
             return header.encode('utf-8') + gzip.compress(content_css.encode('utf-8'))
         
         elif uri.endswith(".js"):
+            with open("../contents"+uri, "r", encoding='UTF-8') as extra_file_js:
+                content_extra_js = extra_file_js.read()
             header = page_found + "Content-Type: text/javascript; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
-            return header.encode('utf-8') + gzip.compress(content_js.encode('utf-8'))
+            return header.encode('utf-8') + gzip.compress(content_extra_js.encode('utf-8'))
         
         elif uri.endswith(".svg"):
             header = page_found + "Content-Type: image/svg+xml" + crlf + crlf
@@ -60,6 +60,18 @@ def process_message(method:str, uri: str):
             header = page_found + "Content-Type: image/x-icon" + crlf + crlf
 
             return header.encode('utf-8') + content_ico
+        
+        elif uri.endswith(".xml"):
+            with open("../contents" + uri, "r", encoding='UTF-8') as file_xml:
+                content_xml = file_xml.read()
+            header = page_found + "Content-Type: application/xml; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
+            return header.encode('utf-8') + gzip.compress(content_xml.encode('utf-8'))
+        elif uri.endswith(".dtd"):
+            with open("../contents" + uri, "r", encoding='UTF-8') as file_dtd:
+                content_dtd = file_dtd.read()
+            header = page_found + "Content-Type: application/xml; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
+            return header.encode('utf-8') + gzip.compress(content_dtd.encode('utf-8'))
+        
         else:
             header = page_not_found + crlf
             return header.encode('utf-8')

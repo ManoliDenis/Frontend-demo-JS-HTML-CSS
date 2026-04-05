@@ -385,3 +385,49 @@ pre {
     font-size: 18px;
     text-align: center;
 }
+
+.tabel-persoane {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabel-persoane th, .tabel-persoane td {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.tabel-persoane th {
+    background-color: #2c3e50;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.tabel-persoane tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tabel-persoane tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+.tabel-persoane tr:last-of-type {
+    border-bottom: 3px solid #2c3e50;
+}
+
+.tabel-persoane tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.3s;
+}
+
+.loading {
+    color: #e67e22;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+}

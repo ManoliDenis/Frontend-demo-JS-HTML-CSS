@@ -1,11 +1,9 @@
 window.addEventListener("load", initPage);
-let paginaCurenta = window.location.pathname.split("/").pop();
-let startX, startY;
-let isDrawing = false;
+
 changeContent('acasa')
 
 function initPage() {
-    
+    let paginaCurenta = window.location.pathname.split("/").pop();
     setInterval(ceas, 1000);
     if(paginaCurenta == "invat.html")
     {
@@ -19,7 +17,7 @@ function initPage() {
      }
 }
 
-async function changeContent(pathway) {
+async function changeContent(pathway, jscriptpath=null) {
     try {
         const response = await fetch("/" + pathway + ".html");
         
@@ -29,6 +27,18 @@ async function changeContent(pathway) {
 
         const html = await response.text();
         document.getElementById("contentx").innerHTML = html;
+        
+        let scriptVechi = document.getElementById("script-dinamic-ajax");
+        if (scriptVechi) {
+            scriptVechi.remove();
+        }
+        
+        if (jscriptpath) {
+            var elementScript = document.createElement('script');
+            elementScript.id = "script-dinamic-ajax";
+            elementScript.src = "/" + jscriptpath + ".js";
+            document.body.appendChild(elementScript);
+        }
     } 
     catch (error) {
         console.log("Eroare la incarcare:", error);
@@ -60,11 +70,13 @@ function incarcaInfoSistem() {
 }
 
 function deseneazaDreptunghi(event) {
+    let isDrawing = false;
     let canvas = document.getElementById("zonaDesen");
     let ctx = canvas.getContext("2d");
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.left;
     let y = event.clientY - rect.top;
+    let startX, startY;
 
     if (!isDrawing) {
         startX = x;
