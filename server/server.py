@@ -2,6 +2,7 @@ import time
 import socket as sock
 import _thread
 import gzip
+import json
 
 # constants
 _debug = False
@@ -72,49 +73,71 @@ def process_message(method:str, uri: str):
             header = page_found + "Content-Type: application/xml; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
             return header.encode('utf-8') + gzip.compress(content_dtd.encode('utf-8'))
         
+        elif uri.endswith(".json"):
+            with open("../contents" + uri, "r", encoding='UTF-8') as file_json:
+                content_json = file_json.read()
+            header = page_found + "Content-Type: application/json; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
+            return header.encode('utf-8') + gzip.compress(content_json.encode('utf-8'))
         else:
             header = page_not_found + crlf
             return header.encode('utf-8')
 
 
 def process_requests(connection : sock, address : any ):
-        try :
+    try :
+        data =  connection.recv(1024)
+        print('connection from', address)
+        print('connected')
+
+        request = data.decode()
+        CRLF_position = request.find(crlf)
+        request_header = request[0:CRLF_position]
+        request_header_words = request_header.split()
+
+        if len(request_header_words) <= 0 :
+             connection.close()
+             return
         
-            data =  connection.recv(1024)
-            print('connection from', address)
-            print('connected')
+        print("HEADER:"+request_header)
 
+        if request_header_words[0] == "GET":
+            method, uri, ver = request_header_words[0:3]
+            if _debug == True:
+                print('request:' + request[0:CRLF_position])
+                print('Type:' + method)
+                print('URI:' + uri)
+                print('HTTP version:' + ver)
+            connection.sendall(process_message(method, uri))
             
-            request = data.decode()
-            CRLF_position = request.find(crlf)
-            request_header = request[0:CRLF_position]
-            request_header_words = request_header.split()
-
-            if len(request_header_words) <= 0 :
-                 connection.close()
-                 return
-            
-            print("HEADER:"+request_header)
-
-
-            if request_header_words[0] == "GET":
-                method, uri, ver = request_header_words[0:3]
-
-                if _debug == True:
-                    print('request:' + request[0:CRLF_position])
-                    print('Type:' + method)
-                    print('URI:' + uri)
-                    print('HTTP version:' + ver)
-                    print("Printing words:")
-                connection.sendall(process_message(method, uri))
-            connection.close()
-        
-        except Exception as e:
-            connection.close()
-            print('Connection closed')
-            print('Reason:' ,e)
-            time.sleep(20)
-
+        elif request_header_words[0] == "POST":
+            method, uri, ver = request_header_words[0:3]
+            if uri == "/api/utilizatori":
+                parts = request.split(crlf + crlf, 1)
+                body = parts[1] if len(parts) > 1 else ""
+                
+                try:
+                    with open("../contents/resurse/utilizatori.json", "r", encoding="utf-8") as f:
+                        utilizatori = json.loads(f.read())
+                except:
+                    utilizatori = []
+                    
+                if body:
+                    date_noi = json.loads(body)
+                    utilizatori.append(date_noi)
+                    
+                    with open("../contents/resurse/utilizatori.json", "w", encoding="utf-8") as f:
+                        f.write(json.dumps(utilizatori))
+                        
+                raspuns = page_found + "Content-Type: text/plain" + crlf + crlf + "Inregistrat cu succes"
+                connection.sendall(raspuns.encode('utf-8'))
+                
+        connection.close()
+    
+    except Exception as e:
+        connection.close()
+        print('Connection closed')
+        print('Reason:' ,e)
+        time.sleep(20)
 socket = sock.socket(sock.AF_INET, sock.SOCK_STREAM)
 socket.bind(('localhost', 5454))
 socket.listen(2)

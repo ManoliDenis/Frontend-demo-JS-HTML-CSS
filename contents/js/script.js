@@ -134,3 +134,49 @@ function adaugaColoana() {
         celulaNoua.style.backgroundColor = culoare;
     }
 }
+async function verificaLogin() {
+    let numeIntrodus = document.getElementById("user").value;
+    let parolaIntrodusa = document.getElementById("pswd").value;
+
+    try {
+        let response = await fetch("/resurse/utilizatori.json");
+        let text = await response.text();
+        let utilizatori = JSON.parse(text);
+        
+        let gasit = false;
+        for (let i = 0; i < utilizatori.length; i++) {
+            if (utilizatori[i].utilizator === numeIntrodus && utilizatori[i].parola === parolaIntrodusa) {
+                gasit = true;
+                break;
+            }
+        }
+        
+        if (gasit) {
+            alert("Te-ai logat cu succes!");
+        } else {
+            alert("Nume sau parola gresita!");
+        }
+        
+    } catch (e) {
+        console.log("Eroare la citire JSON:", e);
+    }
+}
+
+async function trimiteInregistrare() {
+    let nume = document.getElementById("username").value;
+    let parola = document.getElementById("parola").value;
+    
+    let dateFormular = {
+        utilizator: nume,
+        parola: parola
+    };
+    
+    await fetch("/api/utilizatori", {
+        method: "POST",
+        body: JSON.stringify(dateFormular)
+    });
+    
+    alert("Utilizator inregistrat cu succes!");
+    document.getElementById("username").value = "";
+    document.getElementById("parola").value = "";
+}
