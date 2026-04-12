@@ -124,6 +124,7 @@ pre {
 .bara-sus nav a {
     text-decoration: none;
     color: black;
+    font-size: medium;
 }
 
 .bara-jos {
@@ -430,4 +431,132 @@ pre {
     font-size: 20px;
     text-align: center;
     margin-top: 50px;
+}
+#shop table {
+    width: 100%;
+    border-spacing: 20px;
+}
+
+.itemBox {
+    background-color: #f8f9fa;
+    border: 1px solid #cecece;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.itemBox img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.itemBox h1 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.itemBox h2, .itemBox h3 {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.itemBox button {
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.itemBox input {
+    width: 50px;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 5px;
+}
+#verifica {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+#verifica label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #4a4a4a;
+}
+
+#verifica input[type="text"], 
+#verifica input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0f2f1;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+#verifica button {
+    background-color: #81d68e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#verifica button:hover {
+    background-color: #5ab868;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#verifica hr {
+    border: 0;
+    height: 2px;
+    background-color: #e0f2f1;
+    margin: 25px 0;
+}
+
+#verifica h1 {
+    color: #4a4a4a;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#status {
+    font-weight: bold;
+    color: #e67e22;
+    text-align: center;
+    min-height: 20px;
+    font-size: 18px;
+    margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }

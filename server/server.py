@@ -78,6 +78,11 @@ def process_message(method:str, uri: str):
                 content_json = file_json.read()
             header = page_found + "Content-Type: application/json; charset=utf-8" +crlf +"Content-Encoding: gzip" + crlf + crlf
             return header.encode('utf-8') + gzip.compress(content_json.encode('utf-8'))
+        elif uri.endswith(".jpg"):
+            with open("../contents/imagini/" + uri, "rb") as file_jpg:
+                content_jpg = file_jpg.read()
+            header = page_found + "Content-Type: image/jpg" + crlf + crlf
+            return header.encode('utf-8') + content_jpg
         else:
             header = page_not_found + crlf
             return header.encode('utf-8')
