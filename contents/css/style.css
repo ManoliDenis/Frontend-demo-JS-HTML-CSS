@@ -463,16 +463,26 @@ pre {
     margin: 5px 0;
 }
 
+/* STILURILE TALE ORIGINALE PENTRU BUTOANELE +/- (Le-am pus inapoi cum erau!) */
 .itemBox button {
-    font-size: 1.2rem;
-    padding: 5px 15px;
-    margin: 0 5px;
-    cursor: pointer;
-    background-color: #007bff;
+    background-color: #81d68e;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+.itemBox button:hover {
+    background-color: #5ab868;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 
 .itemBox input {
     width: 50px;
@@ -559,4 +569,53 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+#btn-cos {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btn-cos:hover {
+    background-color: #cf711f;
+}
+
+/* Fereastra neagra transparenta pe tot ecranul */
+#popup-cos {
+    display: none; /* Ascuns by default */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+/* Cutia alba din centru */
+.popup-continut {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.inchide {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+}
+
+#tabel-cos-produse {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
 }

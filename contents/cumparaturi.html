@@ -1,42 +1,38 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="css/style.css">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
-     <script src="js/script.js"></script>
-    <title>Ghiseu</title>
+    <title>Cumparaturi</title>
 </head>
 <body>
-    <header class="bara-sus">    
-        <img src="imagini/logoFurat.svg" alt="null" height="64">
-    <nav>           
-                <a href="index.html" ><b>Acasa </b></a>  
-                <a href="despre.html"  ><b>Despre </b></a> 
-                <a href="inregistreaza.html"  > <b>Inregistrare </b></a>
-                <a href="desen.html"  > <b>Desen </b></a>
-                <a href="video.html"  > <b> Video </b></a>    
-                <a href="invat.html"  > <b> Invat </b></a>    
-    </nav> 
-    </header>
-   
-    
 <main>
-    <aside class="side_nav">
-        <nav class="nav_sid">
-            <center>   
-                <h5 id="ora"></h5>
-            </center>
-        </nav>
-    </aside>
-    
-    <form id="shop">
-        
-    </form>
-</main>
+      <aside class="side_nav">
+            <nav class="nav_sid">
+                <center>   
+                    <h5 id="ora"></h5>
+                </center>
+            </nav>
+        </aside>
+    <div style="text-align: right; margin-bottom: 20px; padding: 20px;">
+        <select id="tipStocare" onchange="schimbaStocarea()" style="padding: 10px; border-radius: 8px;">
+            <option value="local">Web Storage (Local)</option>
+            <option value="indexed">IndexedDB</option>
+        </select>
+        <button id="btn-cos" onclick="toggleCart()">Cos (<span id="cart-count">0</span>)</button>
+    </div>
 
-    <footer  class="bara-jos">
-        ©2026.Ghiseu CTI
-    </footer>
+    <form id="shop"></form>
+
+    <div id="popup-cos">
+        <div class="popup-continut">
+            <span class="inchide" onclick="toggleCart()">X</span>
+            <h2>Cos de cumparaturi</h2>
+            <table id="tabel-cos-produse">
+                <tbody id="cart-body"></tbody>
+            </table>
+            <h3 id="cart-total">Total: 0 EUR</h3>
+        </div>
+    </div>
+</main>
 </body>
+</html>

@@ -1,20 +1,9 @@
 window.addEventListener("load", initPage);
 
-changeContent('acasa')
+changeContent('acasa');
 
 function initPage() {
-    let paginaCurenta = window.location.pathname.split("/").pop();
     setInterval(ceas, 1000);
-    if(paginaCurenta == "invat.html")
-    {
-        incarcaInfoSistem();
-
-        let canvas = document.getElementById("zonaDesen");
-        canvas.addEventListener("mousedown", deseneazaDreptunghi);
-
-        document.getElementById("btnRand").addEventListener("click", adaugaRand);
-        document.getElementById("btnColoana").addEventListener("click", adaugaColoana);
-     }
 }
 
 async function changeContent(pathway, jscriptpath=null) {
@@ -28,16 +17,36 @@ async function changeContent(pathway, jscriptpath=null) {
         const html = await response.text();
         document.getElementById("contentx").innerHTML = html;
         
-        let scriptVechi = document.getElementById("script-dinamic-ajax");
-        if (scriptVechi) {
-            scriptVechi.remove();
+        if (pathway === "invat") {
+            setTimeout(() => {
+                incarcaInfoSistem();
+                let canvas = document.getElementById("zonaDesen");
+                if (canvas) canvas.addEventListener("mousedown", deseneazaDreptunghi);
+
+                let btnRand = document.getElementById("btnRand");
+                if (btnRand) btnRand.addEventListener("click", adaugaRand);
+
+                let btnColoana = document.getElementById("btnColoana");
+                if (btnColoana) btnColoana.addEventListener("click", adaugaColoana);
+            }, 50);
         }
-        
+
         if (jscriptpath) {
-            var elementScript = document.createElement('script');
-            elementScript.id = "script-dinamic-ajax";
-            elementScript.src = "/" + jscriptpath + ".js";
-            document.body.appendChild(elementScript);
+            let scriptId = "script-" + pathway;
+            
+            if (!document.getElementById(scriptId)) {
+                var elementScript = document.createElement('script');
+                elementScript.id = scriptId;
+                elementScript.src = "/" + jscriptpath + ".js";
+                document.body.appendChild(elementScript);
+            } else {
+                if (pathway === "cumparaturi" && typeof ShowcaseTable !== "undefined") {
+                    setTimeout(() => {
+                        showcase = new ShowcaseTable(5, 3, _itemsJsonCount);
+                        shoppingCart.initStorage();
+                    }, 50);
+                }
+            }
         }
     } 
     catch (error) {
@@ -47,31 +56,36 @@ async function changeContent(pathway, jscriptpath=null) {
 }
 
 function ceas() {
-    document.getElementById("ora").innerHTML = 
-        "Ceas<br>"  + new Date().getHours() + ":" 
-        + new Date().getMinutes() + ":" + new Date().getSeconds() + "<hr>";
+    let oraElement = document.getElementById("ora");
+    if (oraElement) {
+        oraElement.innerHTML = 
+            "Ceas<br>"  + new Date().getHours() + ":" 
+            + new Date().getMinutes() + ":" + new Date().getSeconds() + "<hr>";
+    }
 }
 
 function incarcaInfoSistem() {
-    if(paginaCurenta == "invat.html"){
     let info = "Adresa URL: " + window.location.href + "<br>";
     info += "Browser: " + navigator.appName + " (" + navigator.appVersion + ")<br>";
     info += "Sistem Operare: " + navigator.platform + "<br>";
     
-    document.getElementById("info-sistem").innerHTML = info;
-    
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            document.getElementById("info-sistem").innerHTML += 
-            "<br>Locatie (Lat, Long): " + position.coords.latitude + ", " + position.coords.longitude;
-        });
-    }
+    let sysElement = document.getElementById("info-sistem");
+    if (sysElement) {
+        sysElement.innerHTML = info;
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                sysElement.innerHTML += 
+                "<br>Locatie (Lat, Long): " + position.coords.latitude + ", " + position.coords.longitude;
+            });
+        }
     }
 }
 
 function deseneazaDreptunghi(event) {
     let isDrawing = false;
     let canvas = document.getElementById("zonaDesen");
+    if (!canvas) return;
     let ctx = canvas.getContext("2d");
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.left;
@@ -102,6 +116,7 @@ function deseneazaDreptunghi(event) {
 
 function adaugaRand() {
     let tabel = document.getElementById("tabelTaxe");
+    if (!tabel) return;
     let pozitie = parseInt(document.getElementById("pozitieTabel").value);
     let culoare = document.getElementById("culoareTabel").value;
 
@@ -121,6 +136,7 @@ function adaugaRand() {
 
 function adaugaColoana() {
     let tabel = document.getElementById("tabelTaxe");
+    if (!tabel) return;
     let pozitie = parseInt(document.getElementById("pozitieTabel").value);
     let culoare = document.getElementById("culoareTabel").value;
 
@@ -134,6 +150,7 @@ function adaugaColoana() {
         celulaNoua.style.backgroundColor = culoare;
     }
 }
+
 async function verificaLogin() {
     let numeIntrodus = document.getElementById("user").value;
     let parolaIntrodusa = document.getElementById("pswd").value;
@@ -151,10 +168,13 @@ async function verificaLogin() {
             }
         }
         
-        if (gasit) {
-            alert("Te-ai logat cu succes!");
-        } else {
-            alert("Nume sau parola gresita!");
+        let statusElement = document.getElementById("status");
+        if (statusElement) {
+            if (gasit) {
+                statusElement.textContent = "Success!";
+            } else {
+                statusElement.textContent = "Eroare!";
+            }
         }
         
     } catch (e) {

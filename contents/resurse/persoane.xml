@@ -2,41 +2,54 @@
 <!DOCTYPE persoane SYSTEM "verify.dtd">
 <persoane>
     <persoana id="1">
-        <nume>Popescu</nume>
-        <prenume>Ion</prenume>
-        <varsta>23</varsta>
+        <nume>Gîrneață</nume>
+        <prenume>Larisa-Emanuela</prenume>
+        <varsta>20</varsta>
         <adresa>
-            <strada>idk</strada>
-            <numar>idk1</numar>
-            <localitate>idk2</localitate>
-            <judet>idk3</judet>
-            <tara>idk4</tara>
+            <strada>Carol I</strada>
+            <numar>16</numar>
+            <localitate>Matca</localitate>
+            <judet>Galați</judet>
+            <tara>England(emigrant din romania)</tara>
         </adresa>
     </persoana>
 
     <persoana id="2">
-        <nume>Popescu</nume>
-        <prenume>Ion</prenume>
-        <varsta>23</varsta>
+        <nume>Rarinca</nume>
+        <prenume>Robert-Mario</prenume>
+        <varsta>21</varsta>
         <adresa>
-            <strada>idk</strada>
-            <numar>idk1</numar>
-            <localitate>idk2</localitate>
-            <judet>idk3</judet>
-            <tara>idk4</tara>
+            <strada>Al doilea razboi mondial</strada>
+            <numar>2</numar>
+            <localitate>Matca</localitate>
+            <judet>Galați</judet>
+            <tara>Rumenia</tara>
         </adresa>
     </persoana>
     
     <persoana id="3">
-        <nume>Popescu</nume>
-        <prenume>Ion</prenume>
-        <varsta>23</varsta>
+        <nume>Diaconu</nume>
+        <prenume>Stefan-Mihai</prenume>
+        <varsta>21</varsta>
         <adresa>
-            <strada>idk</strada>
-            <numar>idk1</numar>
-            <localitate>idk2</localitate>
-            <judet>idk3</judet>
-            <tara>idk4</tara>
+            <strada>Camin T2</strada>
+            <numar>237</numar>
+            <localitate>Iasi</localitate>
+            <judet>Roblox</judet>
+            <tara>David Batszuki</tara>
+        </adresa>
+    </persoana>
+
+    <persoana id="4">
+        <nume>Hîrțan</nume>
+        <prenume>Stefan</prenume>
+        <varsta>84</varsta>
+        <adresa>
+            <strada>Toata e a lui</strada>
+            <numar>40k</numar>
+            <localitate>Iasi</localitate>
+            <judet>Warhammer</judet>
+            <tara>Ardeal</tara>
         </adresa>
     </persoana>
     
