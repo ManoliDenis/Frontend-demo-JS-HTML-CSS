@@ -90,6 +90,7 @@ section {
     color: #4a4a4a;
     font-weight: bold;
     border-radius: 6px;
+    font-size: medium;
 }
 
 .nav_sid a:hover {
@@ -463,7 +464,7 @@ pre {
     margin: 5px 0;
 }
 
-/* STILURILE TALE ORIGINALE PENTRU BUTOANELE +/- (Le-am pus inapoi cum erau!) */
+
 .itemBox button {
     background-color: #81d68e;
     color: white;
@@ -586,7 +587,7 @@ input[type="number"] {
     background-color: #cf711f;
 }
 
-/* Fereastra neagra transparenta pe tot ecranul */
+
 #popup-cos {
     display: none; /* Ascuns by default */
     position: fixed;
@@ -595,7 +596,7 @@ input[type="number"] {
     z-index: 1000;
 }
 
-/* Cutia alba din centru */
+
 .popup-continut {
     background-color: white;
     margin: 10% auto;

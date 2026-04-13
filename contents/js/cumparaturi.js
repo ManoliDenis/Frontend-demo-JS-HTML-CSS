@@ -1,9 +1,9 @@
 // Testing dataBase
 const _itemsJson = [
-    {"id":1, "name":"car", "image":"orice.jpg", "stock":1, "price":35000, "currency":"EUR"},
-    {"id":2, "name":"pistol", "image":"orice.jpg", "stock":5, "price":600, "currency":"EUR"},
-    {"id":3, "name":"casa", "image":"orice.jpg", "stock":1, "price":350000, "currency":"EUR"},
-    {"id":4, "name":"No wanted level", "image":"orice.jpg", "stock":5, "price":69420, "currency":"EUR"}
+    {"id":1, "name":"car", "image":"car.jpg", "stock":1, "price":35000, "currency":"EUR"},
+    {"id":2, "name":"pistol", "image":"pistol.jpg", "stock":5, "price":600, "currency":"EUR"},
+    {"id":3, "name":"casa", "image":"house.jpg", "stock":1, "price":350000, "currency":"EUR"},
+    {"id":4, "name":"No wanted level", "image":"wanted.jpg", "stock":5, "price":850, "currency":"EUR"}
 ];
 const _itemsJsonCount = _itemsJson.length;
 
@@ -209,6 +209,17 @@ class QuantityOptions {
         //Metoda de buy
         let valoareCurenta = parseInt(this.component.value) || 0;
         if(valoareCurenta > 0) {
+            
+            let itemData = _itemsJson.find(i => i.id === id);
+            let cartItem = shoppingCart.list.find(i => i.id === id);
+            let curentInCos = cartItem ? cartItem.quantity : 0;
+
+            if (curentInCos + valoareCurenta > itemData.stock) {
+                alert("Stoc insuficient! Mai poti adauga maxim " + (itemData.stock - curentInCos) + " bucati.");
+                this.component.value = 0;
+                return;
+            }
+
             worker.sendPing({
                 id: id,
                 nume: name,
@@ -499,8 +510,14 @@ function schimbaStocarea() {
 // Adjusts quantity of an element while in popup
 async function schimbaCantitateCos(id, delta) {
     let item = shoppingCart.list.find(i => i.id === id);
-    if (item) {
+    let itemData = _itemsJson.find(i => i.id === id);
+
+    if (item && itemData) {
         if (delta > 0) {
+            if (item.quantity + delta > itemData.stock) {
+                alert("Stoc insuficient!");
+                return;
+            }
             item.addQuantity(delta);
         } else {
             item.rmQuantity(Math.abs(delta));
@@ -508,6 +525,34 @@ async function schimbaCantitateCos(id, delta) {
         await shoppingCart.garbageCollector();
         updateCartUI();
     }
+}
+
+// Finalize transaction
+async function finalizeazaComanda() {
+    if (shoppingCart.list.length === 0) {
+        alert("Cosul este gol!");
+        return;
+    }
+
+    shoppingCart.list.forEach(cartItem => {
+        let itemData = _itemsJson.find(i => i.id === cartItem.id);
+        if (itemData) {
+            itemData.stock -= cartItem.quantity;
+        }
+    });
+
+    shoppingCart.list = [];
+    await shoppingCart.saveToBrowser();
+    updateCartUI();
+    toggleCart();
+
+    let shopContainer = document.getElementById("shop");
+    if (shopContainer) {
+        shopContainer.innerHTML = ""; 
+        showcase = new ShowcaseTable(5, 3, _itemsJsonCount); 
+    }
+
+    alert("Tranzactie finalizata cu succes!");
 }
 
 // Class for CartUI logic

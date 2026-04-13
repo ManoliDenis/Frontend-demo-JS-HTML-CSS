@@ -191,7 +191,7 @@ async function trimiteInregistrare() {
         parola: parola
     };
     
-    await fetch("/api/utilizatori", {
+    await fetch("/resurse/utilizatori", {
         method: "POST",
         body: JSON.stringify(dateFormular)
     });
