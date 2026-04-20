@@ -137,7 +137,6 @@ pre {
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* --- SECTIUNILE DIN INVAT.HTML --- */
 #sec1, #sec2, #sec3 {
     background-color: #ffffff;
     padding: 30px;
@@ -175,7 +174,7 @@ pre {
     cursor: crosshair;
     margin-top: 15px;
 }
-/* ---------------------------------- */
+
 
 
 #sec2 input[type="color"], #sec3 input[type="color"] {
