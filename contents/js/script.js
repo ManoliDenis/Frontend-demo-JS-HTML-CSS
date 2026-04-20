@@ -24,10 +24,10 @@ async function changeContent(pathway, jscriptpath=null) {
                 if (canvas) canvas.addEventListener("mousedown", deseneazaDreptunghi);
 
                 let btnRand = document.getElementById("btnRand");
-                if (btnRand) btnRand.addEventListener("click", adaugaRand);
+                if (btnRand) btnRand.addEventListener("click", addRow);
 
                 let btnColoana = document.getElementById("btnColoana");
-                if (btnColoana) btnColoana.addEventListener("click", adaugaColoana);
+                if (btnColoana) btnColoana.addEventListener("click", addColumn);
             }, 50);
         }
 
@@ -114,40 +114,42 @@ function deseneazaDreptunghi(event) {
     }
 }
 
-function adaugaRand() {
-    let tabel = document.getElementById("tabelTaxe");
-    if (!tabel) return;
-    let pozitie = parseInt(document.getElementById("pozitieTabel").value);
-    let culoare = document.getElementById("culoareTabel").value;
+function addRow() {
+    let table = document.getElementById("tabelTaxe");
+    if (!table) return;
+    let position = parseInt(document.getElementById("pozitieTabel").value);
+    let color = document.getElementById("culoareTabel").value;
 
-    if (pozitie < 0 || pozitie > tabel.rows.length) {
-        pozitie = tabel.rows.length;
+    if (position < 0 || position > table.rows.length) {
+        position = table.rows.length;
     }
 
-    let randNou = tabel.insertRow(pozitie);
-    let numarColoane = tabel.rows[0].cells.length;
+    let newRow = table.insertRow(position);
+    let columnCount = table.rows[0].cells.length;
 
-    for (let i = 0; i < numarColoane; i++) {
-        let celulaNoua = randNou.insertCell(i);
-        celulaNoua.innerHTML = "Linie Noua";
-        celulaNoua.style.backgroundColor = culoare;
+    for (let i = 0; i < columnCount; i++) {
+        let newCell = newRow.insertCell(i);
+        newCell.innerHTML = ""; 
+        newCell.style.backgroundColor = color;
+        newCell.style.height = "10px"; 
     }
 }
 
-function adaugaColoana() {
-    let tabel = document.getElementById("tabelTaxe");
-    if (!tabel) return;
-    let pozitie = parseInt(document.getElementById("pozitieTabel").value);
-    let culoare = document.getElementById("culoareTabel").value;
+function addColumn() {
+    let table = document.getElementById("tabelTaxe");
+    if (!table) return;
+    let position = parseInt(document.getElementById("pozitieTabel").value);
+    let color = document.getElementById("culoareTabel").value;
 
-    if (pozitie < 0 || (tabel.rows.length > 0 && pozitie > tabel.rows[0].cells.length)) {
-        pozitie = tabel.rows[0].cells.length;
+    if (position < 0 || (table.rows.length > 0 && position > table.rows[0].cells.length)) {
+        position = table.rows[0].cells.length;
     }
 
-    for (let i = 0; i < tabel.rows.length; i++) {
-        let celulaNoua = tabel.rows[i].insertCell(pozitie);
-        celulaNoua.innerHTML = "Col Noua";
-        celulaNoua.style.backgroundColor = culoare;
+    for (let i = 0; i < table.rows.length; i++) {
+        let newCell = table.rows[i].insertCell(position);
+        newCell.innerHTML = ""; 
+        newCell.style.backgroundColor = color;
+        newCell.style.width = "10px"; 
     }
 }
 

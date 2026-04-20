@@ -4,7 +4,6 @@ body{
     margin: 0;
     padding: 0;
     padding-bottom: 70px;
-    
 }
 nav a{
     text-decoration: none;
@@ -49,7 +48,6 @@ aside{
     position:sticky;
     width:200px;
     background-color: antiquewhite;
-
 }
 #ora {
     background-color: #ffffff;
@@ -139,6 +137,47 @@ pre {
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* --- SECTIUNILE DIN INVAT.HTML --- */
+#sec1, #sec2, #sec3 {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 650px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #e0f2f1;
+}
+
+#sec1 h1, #sec2 h1, #sec3 h1 {
+    color: #4a4a4a;
+    border-bottom: 2px solid #ffd9de;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#info-sistem {
+    background-color: #f8f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #cecece;
+    color: #555;
+    font-family: monospace;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#zonaDesen {
+    border-radius: 8px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+    cursor: crosshair;
+    margin-top: 15px;
+}
+/* ---------------------------------- */
+
+
 #sec2 input[type="color"], #sec3 input[type="color"] {
     border: none;
     width: 40px;
@@ -176,16 +215,24 @@ pre {
 }
 
 #tabelTaxe {
+    width: 100%;
     background-color: white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border: hidden;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 #tabelTaxe td {
     padding: 15px;
-    border: 1px solid #f0f8ff;
+    border: 1px solid #e0f2f1;
+    color: #4a4a4a;
+    font-weight: 500;
+}
+
+#tabelTaxe tr:nth-child(even) td {
+    background-color: #f8f9fa;
 }
 
 .sectiune-register {
@@ -589,7 +636,7 @@ input[type="number"] {
 
 
 #popup-cos {
-    display: none; /* Ascuns by default */
+    display: none; 
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.6);
