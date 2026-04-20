@@ -105,7 +105,6 @@ pre {
     border-radius: 8px;
 }
 
-
 .bara-sus {
     display: flex;
     align-items: center;
@@ -175,7 +174,39 @@ pre {
     margin-top: 15px;
 }
 
+.galerie-video {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.video-mare, .video-mic {
+    border: 8px solid white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background: white;
+}
+
+.video-mare:hover, .video-mic:hover {
+    transform: scale(1.02);
+}
+
+.video-mare {
+    flex: 1 1 90%;
+    max-width: 900px;
+    height: 500px;
+}
+
+.video-mic {
+    flex: 1 1 45%;
+    max-width: 450px;
+    height: 300px;
+}
 
 #sec2 input[type="color"], #sec3 input[type="color"] {
     border: none;
@@ -321,32 +352,6 @@ pre {
 
 #tabel li:last-child {
     border-bottom: none;
-}
-
-.galerie-video {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
-
-.video-mare {
-    flex: 1 1 100%;
-    max-width: 800px;
-    height: 450px;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.video-mic {
-    flex: 1 1 40%;
-    max-width: 400px;
-    height: 250px;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .contact {
@@ -665,4 +670,46 @@ input[type="number"] {
     width: 100%;
     text-align: left;
     margin-bottom: 20px;
+}
+
+@media print {
+    .bara-sus, .bara-jos, aside, .side_nav, button {
+        display: none !important;
+    }
+    body {
+        background-color: white;
+        padding-bottom: 0;
+    }
+    #sec1, #sec2, #sec3, .galerie-video {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .bara-sus {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .bara-sus nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .bara-sus nav a {
+        font-size: 14px;
+    }
+    .side_nav {
+        display: none;
+    }
+    .video-mare, .video-mic {
+        flex: 1 1 100%;
+        height: 250px;
+    }
+    #sec1, #sec2, #sec3 {
+        width: 95%;
+        padding: 15px;
+    }
 }
